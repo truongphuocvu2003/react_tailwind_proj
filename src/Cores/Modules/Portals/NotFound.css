@@ -1,0 +1,132 @@
+.ghost-shadow {
+    height: 20px;
+    border-radius: 50%;
+    margin: 0 auto;
+    animation: smallnbig 3s ease-in-out infinite;
+}
+
+.ghost-object {
+    width: 100px;
+    height: 100px;
+    border-radius: 100px 100px 0 0;
+    position: relative;
+    margin: 0 auto;
+    animation: upndown 3s ease-in-out infinite;
+}
+
+.ghost-eyes {
+    position: absolute;
+    left: 50%;
+    top: 45%;
+    height: 12px;
+    width: 70px;
+    transform: translate(-50%, -45%);
+}
+
+.ghost-eye-left {
+    width: 12px;
+    height: 12px;
+    background: #332f63;
+    border-radius: 50%;
+    margin: 0 10px;
+    position: absolute;
+    left: 0;
+}
+
+.ghost-eye-right {
+    width: 12px;
+    height: 12px;
+    background: #332f63;
+    border-radius: 50%;
+    margin: 0 10px;
+    position: absolute;
+    right: 0;
+}
+
+.ghost-mouth {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    width: 10px;
+    height: 10px;
+    border: 3px solid;
+    border-radius: 50%;
+    border-color: transparent #585959 #585959 transparent;
+    transform: rotate(45deg);
+}
+
+.ghost-bottom {
+    display: flex;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    height: 60px;
+}
+
+.ghost-bottom div {
+    position: absolute;
+    top: 0;
+    width: 25%;
+    height: 23%;
+    z-index: 0;
+}
+
+.ghost-bottom .one {
+    border-radius: 0 0 100% 30%;
+    left: 0px;
+}
+
+.ghost-bottom .two {
+    left: 25%;
+    border-radius: 0 0 50% 50%;
+}
+
+.ghost-bottom .three {
+    left: 50%;
+    border-radius: 0 0 50% 50%;
+}
+
+.ghost-bottom .four {
+    left: 75%;
+    border-radius: 0 0 30% 100%;
+}
+
+@keyframes upndown {
+    0% {
+        transform: translateY(5px);
+    }
+    50% {
+        transform: translateY(15px);
+    }
+    100% {
+        transform: translateY(5px);
+    }
+}
+
+@keyframes smallnbig {
+    0% {
+        width: 75px;
+    }
+    50% {
+        width: 120px;
+    }
+    100% {
+        width: 75px;
+    }
+}
+
+@keyframes shine {
+    0% {
+        opacity: 0.2;
+    }
+    25% {
+        opacity: 0.1;
+    }
+    50% {
+        opacity: 0.2;
+    }
+    100% {
+        opacity: 0.2;
+    }
+}
