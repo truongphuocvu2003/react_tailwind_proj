@@ -1,14 +1,10 @@
-import { useContext } from 'react'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import {
-  LayoutContext,
-  LayoutActionEnum,
-} from '../../../Cores/Contexts/layoutContext'
 import logo from '../../../logo.svg'
+import { showMenu } from '../../../Cores/Stores/reducers/sidebarSlice'
 
 function Header(props) {
-  const [layoutState, layoutDispatch] = useContext(LayoutContext)
-  const isSidebarOpened = layoutState.isSidebarOpened
+  const dispatch = useDispatch();
 
   const headerCss =
     'fixed top-0 left-0 w-screen z-40 transition-colors duration-400 ease-linear'
@@ -30,9 +26,10 @@ function Header(props) {
           <div className="app-logo">
             <img src={logo} className={'app-logo-img'} alt="logo" />
           </div>
-          <div className={'app-title ' + headerTitleCss}>React App</div>
+          <div className={'app-title ' + headerTitleCss}>Demo Website</div>
         </Link>
-        <div className={'flex-1'}></div>
+        <div className={'flex-1'}>
+        </div>
         <div
           className={darkModeTogglerCss}
           onClick={() => {
@@ -44,10 +41,7 @@ function Header(props) {
         <div
           className={'app-menu-toggler ' + menuTogglerCss}
           onClick={() => {
-            layoutDispatch({
-              type: LayoutActionEnum.ToggleSidebar,
-              value: !isSidebarOpened,
-            })
+            dispatch(showMenu());
           }}
         >
           <span className={menuTogglerIconCss}></span>

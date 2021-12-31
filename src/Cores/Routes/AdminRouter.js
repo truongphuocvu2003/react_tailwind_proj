@@ -1,11 +1,26 @@
+import React from 'react'
 import { useRoutes } from 'react-router-dom'
-import Dashboard from '../Modules/Portals/Dashboard'
 import NotFound from '../Modules/Portals/NotFound'
+import SplashScreen from '../Modules/Portals/SplashScreen'
+
+const Todo = React.lazy(() => import('../Modules/Portals/Todo/Todo'))
+const Dashboard = React.lazy(() => import('../Modules/Portals/Dashboard'))
 
 export default function AdminRouter(props) {
   const routes = useRoutes([
     { path: '/', element: <Dashboard /> },
-    { path: '/*', element: <NotFound /> }
+    { path: '/todo', element: <Todo /> },
+    { path: '/*', element: <NotFound /> },
   ])
-  return routes
+  return (
+    <React.Suspense
+      fallback={
+        <>
+          <SplashScreen></SplashScreen>
+        </>
+      }
+    >
+      {routes}
+    </React.Suspense>
+  )
 }

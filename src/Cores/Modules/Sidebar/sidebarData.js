@@ -13,7 +13,7 @@ export const initSidebarMenuItems = () => {
     },
     {
       name: 'landingPage',
-      url: '/landingPage',
+      url: '/',
       text: 'Landing Page',
       icon: 'mdi mdi-24px mdi-floor-plan',
       type: 'item',

@@ -1,13 +1,11 @@
-import { useState, useRef, useContext } from 'react'
+import { useState, useRef } from 'react'
+import { useDispatch } from 'react-redux'
 import { NavLink, useMatch, useResolvedPath } from 'react-router-dom'
-import {
-  LayoutContext,
-  LayoutActionEnum,
-} from '../../../../Cores/Contexts/layoutContext'
+import { closeMenu } from '../../../../Cores/Stores/reducers/sidebarSlice'
 
 export default function SidebarMenuItem(props) {
   const item = props.item
-  const [, layoutDispatch] = useContext(LayoutContext)
+  const dispatch = useDispatch();
   const [, setItem] = useState({
     childHeight: 0,
   })
@@ -120,10 +118,7 @@ export default function SidebarMenuItem(props) {
             to={itemUrl}
             className={itemLinkCss}
             onClick={() => {
-              layoutDispatch({
-                type: LayoutActionEnum.ToggleSidebar,
-                value: false,
-              })
+              dispatch(closeMenu())
             }}
           >
             {children}

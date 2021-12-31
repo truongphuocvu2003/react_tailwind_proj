@@ -1,0 +1,10 @@
+@tailwind components;
+
+@layer components {
+    .btn-default {
+        @apply inline-block text-2xl rounded px-20 py-6;
+    }
+    .btn-orange {
+        @apply bg-orange-700 font-bold text-white shadow-gray-400 hover:bg-white hover:text-orange-700 focus:text-orange-700 focus:bg-transparent dark:shadow-gray-300;
+    }
+}

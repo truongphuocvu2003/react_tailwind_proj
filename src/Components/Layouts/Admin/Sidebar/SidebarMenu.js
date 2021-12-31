@@ -31,6 +31,7 @@ function CalculateActiveItems(item) {
 }
 
 export default function SidebarMenu(props) {
+
   if (!sidebarMenuItems.length) {
     initSidebarMenuItems()
     sidebarMenuItems.map((e) => CalculateActiveItems(e))
